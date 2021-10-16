@@ -99,10 +99,10 @@ exports.execute = function (req, res) {
     console.log("3");	
     console.log("2");	
     console.log("1");	
-    //console.log("Executed: "+req.body.inArguments[0]);
+    console.log("Executed: "+req.body.inArguments[0]);
     var requestBody = req.body.inArguments[0];
-  //  var uniqueEmail = req.body.keyValue;
-   // console.log(uniqueEmail);
+    var uniqueEmail = req.body.keyValue;
+    console.log(uniqueEmail);
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
@@ -115,20 +115,104 @@ exports.execute = function (req, res) {
         
           .create({ 
              body: body,
-            statusCallback: 'https://postb.in/1634376692313-1793774713296',
+            statusCallback: 'http://postb.in/1634376692313-1793774713296',
              messagingService: messagingService,
              from :'+19156420620' ,
              to: '+91'+ to
              
            }) 
-          .then(message => console.log(message.sid)) 
+          .then(message => { 
+            console.log(message);
+
+
+            //package ka authendpoint
+            var authEndpoint = "mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" 
+
+
+            const data = JSON.stringify({
+                client_id: "a99und2ssv38obcjqoe8v1mp", //pass Client ID
+                client_secret: "mt7J90uglmROiZV62dGmZYl9", //pass Client Secret
+                grant_type: "client_credentials"
+            })
+
+            const options = {
+                hostname: authEndpoint,
+                path: '/v2/token',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                  //  'Content-Length': data.length
+                }
+            }
+            var accessToken = '';
+            var restURL = '';
+            const requestForToken = http.request(options, res => {
+                console.log(`statusCode: ${res.statusCode}`)
+                var jsonString = '';
+                res.on('data', d => {
+                    jsonString += d;
+                    process.stdout.write(d)
+                })
+                res.on('end', function() {
+                    var resData = JSON.parse(jsonString);
+                    accTok += resData.access_token
+                    restURL += resData.rest_instance_url
+                    console.log(`Access Token : ` + accessToken); 
+                    console.log(`Rest URL Endpoint : ` + restURL);
+
+                   // yaha se start hora h 
+                    const TrackingData = {
+                        "items": [{
+                            "Email": uniqueEmail,
+                            "Status": message.status,
+                            "AccountSID": message.accountSid,
+                            "apiVersion": message.apiVersion,
+                            "Body": message.body,
+                            "dateCreated": message.dateCreated,
+                            "dateUpdated": message.dateUpdated,
+                            "dateSent": message.dateSent,
+                            "direction": message.direction,
+                            "from": message.from,
+                            "messagingServiceSid": message.messagingServiceSid,
+                            "price": message.price,
+                            "priceUnit": message.priceUnit,
+                            "sid": message.sid,
+                            "uri": message.uri
+                        }]
+                    }
+                    console.log(TrackingData);
+                    console.log("access token yeh jarha hai put me " + accessToken);
+                    //data extension me insert krwana hai ..
+                    request.put({
+                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessToken },
+                        url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+                        body: TrackingData,
+                        json: true
+                    }, function(error, response, body) {
+                        console.log(error);
+                        console.log("resultMessages" + body.resultMessages);
+                        console.log("resultMessages" + response.requestId);
+                    });
+                    
+                })
+            })
+            requestForToken.on('error', error => {
+                console.error(error);
+            })
+            requestForToken.write(data);
+            requestForToken.end();
+
+            
+
+            console.log(message)
+        }) 
           .done();
 
 
 
     // FOR TESTING
-    logData(req);
-    res.send(200, 'Publish');
+   // logData(req);
+   // res.send(200, 'Publish');
 
     // Used to decode JWT
     // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
