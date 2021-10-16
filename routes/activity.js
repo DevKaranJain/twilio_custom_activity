@@ -10,7 +10,6 @@ var express     = require('express');
 var bodyParser  = require('body-parser');
 
 const { JsonWebTokenError } = require('jsonwebtoken');
-console.log("this is jsonWebTokenError --- "+ JsonWebTokenError);
 
 
 exports.logExecuteData = [];
