@@ -115,7 +115,7 @@ exports.execute = function (req, res) {
         
           .create({ 
              body: body,
-             statusCallback: 'https://postb.in/1634376692313-1793774713296',
+            // statusCallback: 'https://postb.in/1634376692313-1793774713296',
              messagingService: messagingService,
              from :'+19156420620' ,
              to: '+91'+ to
