@@ -1,6 +1,7 @@
 'use strict';
 
 // Deps
+console.log("in the index file ");
 var activity = require('./activity');
 
 /*
