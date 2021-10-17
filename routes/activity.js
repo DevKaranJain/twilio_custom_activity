@@ -68,6 +68,7 @@ exports.edit = function (req, res) {
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     logData(req);
+    console.log("coming in exports of edit");
     res.send(200, 'Edit');
 };
 
@@ -84,7 +85,8 @@ exports.save = function (req, res) {
     //console.log("Saved: "+req.body.inArguments[0]);
     
     // Data from the req and put it in an array accessible to the main app.
-    console.log( req.body );
+    //console.log( req.body );
+    console.log("in the save function ");
     logData(req);
     res.send(200, 'Save');
 };
@@ -123,91 +125,7 @@ exports.execute = function (req, res) {
              to: '+91'+ to
              
            }) 
-          .then(message => { 
-            console.log(message);
-
-
-            //package ka authendpoint
-            var authEndpoint = "mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" 
-
-
-            const data = JSON.stringify({
-                client_id: "a99und2ssv38obcjqoe8v1mp", //pass Client ID
-                client_secret: "mt7J90uglmROiZV62dGmZYl9", //pass Client Secret
-                grant_type: "client_credentials"
-            })
-
-            const options = {
-                hostname: authEndpoint,
-                path: '/v2/token',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                  //  'Content-Length': data.length
-                }
-            }
-            var accessToken = '';
-            var restURL = '';
-            const requestForToken = http.request(options, res => {
-                console.log(`statusCode: ${res.statusCode}`)
-                var jsonString = '';
-                res.on('data', d => {
-                    jsonString += d;
-                    process.stdout.write(d)
-                })
-                res.on('end', function() {
-                    var resData = JSON.parse(jsonString);
-                    accTok += resData.access_token
-                    restURL += resData.rest_instance_url
-                    console.log(`Access Token : ` + accessToken); 
-                    console.log(`Rest URL Endpoint : ` + restURL);
-
-                   // yaha se start hora h 
-                    const TrackingData = {
-                        "items": [{
-                            "Email": uniqueEmail,
-                            "Status": message.status,
-                            "AccountSID": message.accountSid,
-                            "apiVersion": message.apiVersion,
-                            "Body": message.body,
-                            "dateCreated": message.dateCreated,
-                            "dateUpdated": message.dateUpdated,
-                            "dateSent": message.dateSent,
-                            "direction": message.direction,
-                            "from": message.from,
-                            "messagingServiceSid": message.messagingServiceSid,
-                            "price": message.price,
-                            "priceUnit": message.priceUnit,
-                            "sid": message.sid,
-                            "uri": message.uri
-                        }]
-                    }
-                    console.log(TrackingData);
-                    console.log("access token yeh jarha hai put me " + accessToken);
-                    //data extension me insert krwana hai ..
-                    request.put({
-                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessToken },
-                        url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
-                        body: TrackingData,
-                        json: true
-                    }, function(error, response, body) {
-                        console.log(error);
-                        console.log("resultMessages" + body.resultMessages);
-                        console.log("resultMessages" + response.requestId);
-                    });
-                    
-                })
-            })
-            requestForToken.on('error', error => {
-                console.error(error);
-            })
-            requestForToken.write(data);
-            requestForToken.end();
-
-            
-
-            console.log(message)
-        }) 
+           .then(message => console.log(message.sid))
           .done();
 
 
@@ -255,7 +173,9 @@ exports.publish = function (req, res) {
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
      logData(req);
+     console.log("coming to publish");
      res.send(200, 'Publish');
+     console.log("coming to publish");
 };
 
 /*
@@ -273,5 +193,7 @@ exports.validate = function (req, res) {
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     logData(req);
+    console.log("coming to validate");
     res.send(200, 'Validate');
+    console.log("coming to coming to validate");
 };
