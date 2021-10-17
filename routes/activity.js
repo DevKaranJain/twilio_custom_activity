@@ -170,9 +170,8 @@ exports.publish = function (req, res) {
     //console.log("Published: "+req.body.inArguments[0]);        
     
     // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
+    console.log( req.body );
      logData(req);
-     console.log("coming to publish");
      res.send(200, 'Publish');
      console.log("coming to publish");
 };
@@ -190,9 +189,8 @@ exports.validate = function (req, res) {
     //console.log("Validated: "+req.body.inArguments[0]);       
     
     // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
+    console.log( req.body );
     logData(req);
-    console.log("coming to validate");
     res.send(200, 'Validate');
     console.log("coming to coming to validate");
 };
