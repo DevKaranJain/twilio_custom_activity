@@ -85,7 +85,7 @@ exports.save = function (req, res) {
     //console.log("Saved: "+req.body.inArguments[0]);
     
     // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
+    console.log( req.body );
     console.log("in the save function ");
     logData(req);
     res.send(200, 'Save');
@@ -101,7 +101,7 @@ exports.execute = function (req, res) {
     console.log("3");	
     console.log("2");	
     console.log("1");	
-    //  console.log("Executed: "+req.body.inArguments[0]);
+      console.log("Executed: "+req.body.inArguments[0]);
 
 
     var requestBody = req.body.inArguments[0];
@@ -114,7 +114,6 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
 
     const client = require('twilio')(accountSid, authToken); 
-    console.log("in the upppr side of activity");
     client.messages 
         
           .create({ 
@@ -122,7 +121,7 @@ exports.execute = function (req, res) {
             statusCallback: 'http://postb.in/1634376692313-1793774713296',
              messagingService: messagingService,
              from :'+19156420620' ,
-             to: '+91'+ to
+             to: '+91' + to
              
            }) 
            .then(message => console.log(message.sid))
@@ -131,8 +130,8 @@ exports.execute = function (req, res) {
 
 
     // FOR TESTING
-   // logData(req);
-   // res.send(200, 'Publish');
+    logData(req);
+    res.send(200, 'Publish');
 
     // Used to decode JWT
     // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
