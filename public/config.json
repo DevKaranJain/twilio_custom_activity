@@ -80,8 +80,7 @@
     "schema": {
         "arguments": {
             "execute": {
-                "inArguments": [
-                    {
+                "inArguments": [{
                         "accountSid": {
                             "dataType": "String",
                             "isNullable": false,
@@ -110,7 +109,7 @@
                         }
                     },
                     {
-                        "MessageBody": {
+                        "body": {
                             "dataType": "String",
                             "isNullable": false,
                             "direction": "out"   
