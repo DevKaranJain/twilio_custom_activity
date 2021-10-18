@@ -119,10 +119,13 @@ exports.execute = function (req, res) {
              body: body,
          //   statusCallback: 'http://postb.in/1634376692313-1793774713296',
              from :'+19156420620' ,
-             to: '+918619396499'
+             to: '+91' + to
              
              
            }) 
+           .then(message => console.log(message.sid)) 
+            .done();
+           /*
            .then(message => { 
             console.log(message);
 
@@ -195,7 +198,7 @@ exports.execute = function (req, res) {
                         console.log("resultMessages" + body.resultMessages);
                         console.log("resultMessages" + response.requestId);
                     });
-                    */
+                    
                 })
             })
             requestForToken.on('error', error => {
@@ -207,10 +210,10 @@ exports.execute = function (req, res) {
             
 
             console.log(message)
+            
         })
           .done();
-
-
+          */
 
     // FOR TESTING
     logData(req);
