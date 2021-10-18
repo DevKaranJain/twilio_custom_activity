@@ -21,7 +21,7 @@ define([
 
     connection.on('clickedNext', save);
     //connection.on('clickedBack', onClickedBack);
-    connection.on('gotoStep', onGotoStep);
+    //connection.on('gotoStep', onGotoStep);
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
