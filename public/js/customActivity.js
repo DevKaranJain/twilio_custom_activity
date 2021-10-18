@@ -4,7 +4,7 @@ define([
     Postmonger
 ) {
     'use strict';
-
+    console.log("in the custom activity ");
     var connection = new Postmonger.Session();
     var payload = {};
     var lastStepEnabled = false;
