@@ -33,7 +33,7 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "5d596207-02f0-4894-80f8-3d8f5f4f7f7e",
+      "applicationExtensionKey": "db53cc2a-1ff1-44cf-a445-ab9e78a6f355",
        "save": {
            "url": "https://twilliocustomactiviti.herokuapp.com/save/",
             "verb": "POST",
