@@ -40,7 +40,7 @@
             "body": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 2000
+            "timeout": 3000
        },
        "publish": {
            "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/publish/",
@@ -48,7 +48,7 @@
             "body": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 2000
+            "timeout": 3000
        },
        "validate": {
            "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/validate/",
@@ -56,7 +56,7 @@
             "body": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 2000
+            "timeout": 3000
        },
        "stop": {
            "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/stop",
@@ -64,11 +64,11 @@
             "body": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 2000
+            "timeout": 3000
        }
     },
     "wizardSteps": [
-       { "label": "Create SMS Message", "key": "step1" }
+       { "label": "Twilio Authentication", "key": "step1" }
     ],
     "userInterfaces": {
        "configModal": {
