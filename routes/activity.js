@@ -127,7 +127,7 @@ exports.execute = function (req, res) {
 
 
             //package ka authendpoint
-            var authEndpoint = "mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" 
+            var authEndpoint = "https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" 
 
 
             const data = JSON.stringify({
