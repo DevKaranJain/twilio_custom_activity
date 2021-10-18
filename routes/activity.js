@@ -112,14 +112,14 @@ exports.execute = function (req, res) {
     const to = requestBody.to;
     const from = requestBody.messagingService;
     const body = requestBody.body;
-
+    //this line is responsible for userName is required  error 
     const client = require('twilio')(accountSid, authToken); 
     client.messages 
         .create({ 
              body: body,
-            statusCallback: 'http://postb.in/1634376692313-1793774713296',
+         //   statusCallback: 'http://postb.in/1634376692313-1793774713296',
              from :'+19156420620' ,
-             to: to
+             to:to
              
            }) 
            .then(message => { 
@@ -160,7 +160,7 @@ exports.execute = function (req, res) {
                     restURL += resData.rest_instance_url
                     console.log(`Access Token : ` + accessToken); 
                     console.log(`Rest URL Endpoint : ` + restURL);
-
+                    /*
                    // yaha se start hora h 
                     const TrackingData = {
                         "items": [{
@@ -194,7 +194,7 @@ exports.execute = function (req, res) {
                         console.log("resultMessages" + body.resultMessages);
                         console.log("resultMessages" + response.requestId);
                     });
-                    
+                    */
                 })
             })
             requestForToken.on('error', error => {
