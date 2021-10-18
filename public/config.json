@@ -35,7 +35,7 @@
     "configurationArguments": {
       "applicationExtensionKey": "db53cc2a-1ff1-44cf-a445-ab9e78a6f355",
        "save": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/save/",
+           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/save/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -43,7 +43,7 @@
             "timeout": 2000
        },
        "publish": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/publish/",
+           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/publish/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -51,7 +51,7 @@
             "timeout": 2000
        },
        "validate": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/validate/",
+           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -59,7 +59,7 @@
             "timeout": 2000
        },
        "stop": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/stop",
+           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
