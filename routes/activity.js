@@ -119,7 +119,8 @@ exports.execute = function (req, res) {
              body: body,
          //   statusCallback: 'http://postb.in/1634376692313-1793774713296',
              from :'+19156420620' ,
-             to:to
+             to: '+91'+ to ,
+             
              
            }) 
            .then(message => { 
