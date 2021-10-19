@@ -117,8 +117,9 @@ exports.execute = function (req, res) {
   
     client.messages.create({ 
              body: body,
+             statusCallback: 'https://postb.in/1634632766316-9085072900634' ,
              from :'+19156420620' ,
-             to:'+91'+to
+             to: '+91' + to
              }) 
            .then(message => console.log(message.sid)) 
             .done();
