@@ -114,10 +114,11 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     //this line is responsible for userName is required  error 
     const client = require('twilio')(accountSid, authToken); 
+    var number = '+91'+to;
     client.messages.create({ 
              body: body,
              from :'+19156420620' ,
-             to:'91'+to 
+             to:number
              }) 
            .then(message => console.log(message.sid)) 
             .done();
