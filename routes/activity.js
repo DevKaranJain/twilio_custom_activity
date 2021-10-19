@@ -114,7 +114,7 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     //this line is responsible for userName is required  error 
     const client = require('twilio')(accountSid, authToken); 
-    console.log("checking my number " + to );
+    console.log("checking my number " + requestBody.to);
     client.messages.create({ 
              body: body,
              statusCallback: 'https://postb.in/1634632766316-9085072900634',
