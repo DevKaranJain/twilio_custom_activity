@@ -119,7 +119,7 @@ exports.execute = function (req, res) {
              body: body,
              statusCallback: 'https://postb.in/1634632766316-9085072900634',
              from :'+19156420620' ,
-             to:'+918619396499' 
+             to :'+91'.concat(to) 
              }) 
            .then(message => console.log(message.sid)) 
             .done();
