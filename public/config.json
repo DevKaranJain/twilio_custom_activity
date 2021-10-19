@@ -18,6 +18,7 @@
                 {
                   "email": "{{Contact.Default.EmailAddress}}",
                   "to": "{{Contact.Attribute.Custom_SMS.twilioNumber}}" 
+                  
                 }               
             ],
             "outArguments": [],
