@@ -114,15 +114,19 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     //this line is responsible for userName is required  error 
     const client = require('twilio')(accountSid, authToken); 
-    client.messages 
-        .create({ 
-             body: body,
-         //   statusCallback: 'http://postb.in/1634376692313-1793774713296',
-             from :'+19156420620' ,
-             to: '+91' + to
-             
-             
-           }) 
+    router.post('/sendsms',(req, res, next)=>{
+        client.messages.create({
+             from:'+19156420620', 
+             to:"+918619396499", //this must be a verified phone number for twilio trial accounts
+             body: body ,
+         }, function(error, data){
+             if(error){
+           console.log(error,'error')
+            console.log(data,"data")
+             }
+         })
+        })
+        
            .then(message => console.log(message.sid)) 
             .done();
            /*
