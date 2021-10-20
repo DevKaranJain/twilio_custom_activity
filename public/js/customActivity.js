@@ -94,16 +94,17 @@ define([
         var authToken = $('#authToken').val();
         var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
+        console.log("in the save option "+ body);
         
         payload['arguments'].execute.inArguments = [{
             "accountSid": accountSid,
             "authToken": authToken,
             "messagingService": messagingService,
             "body": body,
-            "to": "{{Contact.Attribute.Custom_SMS.twilioNumber}}" //<----This should map to your data extension name and phone number column
+            "to": "{{Contact.Custom_activity.Custom_SMS.twilioNumber}}" //<----This should map to your data extension name and phone number column
         }];       
         payload['metaData'].isConfigured = true;
-
+        //console.log("my contact is "+)
         console.log("Payload on SAVE function: "+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
 
