@@ -101,8 +101,7 @@ define([
             "messagingService": messagingService,
             "body": body,
             "to": "{{Contact.Attribute.Custom_SMS.twilioNumber}}" //<----This should map to your data extension name and phone number column
-        }];
-        console.log("in the save function too "+ to);
+        }];       
         payload['metaData'].isConfigured = true;
 
         console.log("Payload on SAVE function: "+JSON.stringify(payload));
