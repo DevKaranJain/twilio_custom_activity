@@ -104,7 +104,7 @@
                     },                    
                     {
                         "to": {
-                            "dataType": "Phone",
+                            "dataType": "Text",
                             "isNullable": false,
                             "direction": "out"   
                         }
