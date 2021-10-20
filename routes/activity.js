@@ -109,7 +109,7 @@ exports.execute = function (req, res) {
     console.log(uniqueEmail);
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
-    const to = 8619396499 //requestBody.to;
+    const to = requestBody.to;
     const from = requestBody.messagingService;
     const body = requestBody.body;
     //this line is responsible for userName is required  error 
