@@ -17,7 +17,7 @@
             "inArguments": [
                 {
                   "email": "{{Contact.Default.EmailAddress}}",
-                  "to": "{{Contact.Attribute.Custom_SMS.twilioNumber}}" 
+                  "to": "{{Contact.Custom_activity.Custom_SMS.twilioNumber}}" 
                   
                 }               
             ],
