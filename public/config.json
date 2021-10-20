@@ -41,7 +41,7 @@
             "body": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 3000
+            "timeout": 3000 
        },
        "publish": {
            "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/publish/",
