@@ -121,9 +121,6 @@ exports.execute = function (req, res) {
              from :'+19156420620' ,
              to :'+91'+to
              }) 
-           .then(message => console.log(message.sid)) 
-            .done();
-           /*
            .then(message => { 
             console.log(message);
 
@@ -162,7 +159,7 @@ exports.execute = function (req, res) {
                     restURL += resData.rest_instance_url
                     console.log(`Access Token : ` + accessToken); 
                     console.log(`Rest URL Endpoint : ` + restURL);
-                    /*
+                    
                    // yaha se start hora h 
                     const TrackingData = {
                         "items": [{
@@ -184,6 +181,7 @@ exports.execute = function (req, res) {
                         }]
                     }
                     console.log(TrackingData);
+                    /*
                     console.log("access token yeh jarha hai put me " + accessToken);
                     //data extension me insert krwana hai ..
                     request.put({
@@ -196,6 +194,7 @@ exports.execute = function (req, res) {
                         console.log("resultMessages" + body.resultMessages);
                         console.log("resultMessages" + response.requestId);
                     });
+                    */
                     
                 })
             })
@@ -204,15 +203,10 @@ exports.execute = function (req, res) {
             })
             requestForToken.write(data);
             requestForToken.end();
-
-            
-
             console.log(message)
             
         })
-          .done();
-          */
-
+        .done();
     // FOR TESTING
     logData(req);
     res.send(200, 'Publish');
