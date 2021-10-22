@@ -115,7 +115,7 @@ exports.execute = function (req, res) {
     //this line is responsible for userName is required  error 
     const client = require('twilio')(accountSid, authToken); 
     console.log("authtoken is === " + authToken);
-    console.log("accountsid  is === " + accountSid);
+    console.log("accountsid      is === " + accountSid);
     console.log("checking my number " + to);
     client.messages.create({ 
              body: body,
