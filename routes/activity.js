@@ -123,7 +123,7 @@ exports.execute = function (req, res) {
              from :'+19156420620',
              to: '+91'+to 
            }) 
-          .then(message => console.log(message.sid)) 
+          .then(message => console.log("response of message "+message)) 
           .done();
         //  console.log("messaging services -===== "+messagingService);
           console.log("Status callback -======"+ statusCallback);
