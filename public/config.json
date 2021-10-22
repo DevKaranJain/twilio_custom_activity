@@ -104,7 +104,7 @@
                     },                    
                     {
                         "to": {
-                            "dataType": "Text",
+                            "dataType": "Text   ",
                             "isNullable": false,
                             "direction": "out"   
                         }
