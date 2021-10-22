@@ -119,14 +119,13 @@ exports.execute = function (req, res) {
     client.messages 
           .create({ 
              body: body,
-             messagingService: messagingService,
              statusCallback: 'https://postb.in/1634632766316-9085072900634' ,
              from :'+19156420620',
              to: '+91'+to 
            }) 
           .then(message => console.log(message.sid)) 
           .done();
-          console.log("messaging services -===== "+messagingService);
+        //  console.log("messaging services -===== "+messagingService);
           console.log("Status callback -======"+ statusCallback);
     // FOR TESTING
     logData(req);
