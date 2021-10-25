@@ -105,7 +105,6 @@ define([
            
         }];       
         payload['metaData'].isConfigured = true;
-        //console.log("my contact is "+)
         console.log("Payload on SAVE function: "+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
 
