@@ -123,9 +123,8 @@ exports.execute = function (req, res) {
              from :'+19156420620',
              to: '+91'+to 
            }) 
-          .then(message => console.log("response of message "+message.body + "client of number"+message.to + " client of response "+ message.uri +" message key === " + message.messageKey))
-
-          .done();
+           .then(message => console.log(message.sid)) 
+           .done();
         //  console.log("messaging services -===== "+messagingService);
         //  console.log("Status callback -======"+ statusCallback);
     // FOR TESTING
