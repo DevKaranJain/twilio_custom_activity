@@ -112,21 +112,18 @@ exports.execute = function (req, res) {
     const to = requestBody.to;
     const from = requestBody.messagingService;
     const body = requestBody.body;
+    
     //this line is responsible for userName is required  error 
-    const client = require('twilio')(accountSid, authToken); 
-    console.log("checking my number " + to);
+    const client = require('twilio')(accountSid, authToken);
        
     client.messages 
           .create({ 
              body: body,
-        //     statusCallback: 'https://postb.in/1634632766316-9085072900634' ,
              from :'+19156420620',
              to: '+91'+to 
            }) 
            .then(message => console.log(message.sid)) 
-           .done();
-        //  console.log("messaging services -===== "+messagingService);
-        //  console.log("Status callback -======"+ statusCallback);
+           .done(); 
     // FOR TESTING
     logData(req);
     res.send(200, 'Publish');
